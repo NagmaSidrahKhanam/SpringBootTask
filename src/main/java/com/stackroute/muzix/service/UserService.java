@@ -1,5 +1,7 @@
 package com.stackroute.muzix.service;
 
+import com.stackroute.muzix.exceptions.UserAlreadyExistsException;
+import com.stackroute.muzix.exceptions.UserNotFoundException;
 import com.stackroute.muzix.model.User;
 
 import java.util.List;
