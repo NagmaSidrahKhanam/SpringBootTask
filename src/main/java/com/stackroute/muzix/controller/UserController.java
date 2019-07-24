@@ -43,7 +43,9 @@ public class UserController {
 //            @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
 //    }
 //    )
-    @PostMapping("user")
+@RequestMapping(value="/user", method = RequestMethod.POST, produces = "application/json")
+
+@PostMapping("user")
     public ResponseEntity<?> saveUser(@RequestBody User user){
     ResponseEntity responseEntity;
     try{
