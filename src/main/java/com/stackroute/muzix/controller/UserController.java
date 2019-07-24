@@ -21,6 +21,7 @@ public class UserController {
     public UserController() {
     }
 
+    @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
@@ -64,6 +65,8 @@ public class UserController {
         {
             userService.updateUser(id,user);
             responseEntity=new ResponseEntity("successfully updated",HttpStatus.OK);
+            return new ResponseEntity<List<User>>(userService.getAllUsers(),HttpStatus.OK);
+
         }
         catch(Exception ex)
         {
@@ -72,5 +75,22 @@ public class UserController {
         return responseEntity;
     }
 
+    @GetMapping("/user/{name}")
+    public ResponseEntity<?> getUserbyName(@PathVariable("name") String name)
+    {
+        ResponseEntity responseEntity;
+        try
+        {
+            userService.getUserbyName(name);
+//            responseEntity=new ResponseEntity("successfully updated",HttpStatus.OK);
+            return new ResponseEntity<List<User>>(userService.getUserbyName(name),HttpStatus.OK);
+
+        }
+        catch(Exception ex)
+        {
+            responseEntity=new ResponseEntity(ex.getMessage(),HttpStatus.CONFLICT);
+        }
+        return responseEntity;
+    }
 
 }
