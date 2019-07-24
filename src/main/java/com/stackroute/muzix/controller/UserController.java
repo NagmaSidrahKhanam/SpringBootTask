@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/api/v1")
+@ControllerAdvice(basePackages="com.stackroute.muzix")
 public class UserController {
     UserService userService;
 
@@ -24,10 +26,19 @@ public class UserController {
     }
 
     @PostMapping("user")
-    public ResponseEntity<?> saveuser(@RequestBody User user) throws UserAlreadyExistsException {
+    @ExceptionHandler(UserAlreadyExistsException.class)
+    public ResponseEntity<?> saveuser(@RequestBody User user)
+    {
         ResponseEntity responseEntity;
-        userService.saveUser(user);
-        responseEntity=new ResponseEntity<String>("successfully created",HttpStatus.CREATED);
+        try
+        {
+            userService.saveUser(user);
+            responseEntity=new ResponseEntity<String>("successfully created",HttpStatus.CREATED);
+        }
+        catch(UserAlreadyExistsException ex)
+        {
+            responseEntity=new ResponseEntity<String>(ex.getMessage(),HttpStatus.CONFLICT);
+        }
         return responseEntity;
     }
 
@@ -67,13 +78,19 @@ public class UserController {
         return responseEntity;
     }
     @GetMapping("user/{firstName}")
-    public ResponseEntity<?> getTrackbyName(@PathVariable String firstName) throws UserNotFoundException {
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<?> getTrackbyName(@PathVariable String firstName) {
 
         ResponseEntity responseEntity;
 
-        responseEntity = new ResponseEntity<List<User>>(userService.getUserbyName(firstName), HttpStatus.CREATED);
+        try {
+            responseEntity = new ResponseEntity<List<User>>(userService.getUserbyName(firstName), HttpStatus.CREATED);
 
 
+        } catch (UserNotFoundException e) {
+            responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
+
+        }
         return responseEntity;
 
     }
