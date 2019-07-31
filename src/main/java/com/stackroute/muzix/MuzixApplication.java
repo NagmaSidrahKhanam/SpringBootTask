@@ -20,7 +20,6 @@ public class MuzixApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MuzixApplication.class, args);
 	}
-	@Override
  	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(MuzixApplication.class);
 	}
@@ -28,7 +27,6 @@ public class MuzixApplication {
 	public MuzixApplication(UserService userService) {
 		this.userService = userService;
 	}
-	@Override
 	public void run(String[] args) {
 		try {
 			userService.saveUser(new User(1, "All of me", "john wick",23));
