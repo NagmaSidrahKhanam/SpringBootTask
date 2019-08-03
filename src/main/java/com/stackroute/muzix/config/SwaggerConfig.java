@@ -12,7 +12,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import static springfox.documentation.builders.PathSelectors.regex;
 
 @Configuration
-@EnableSwagger2
+@EnableSwagger2   //@EnableSwagger2 annotation is used to enable the Swagger2 for your Spring Boot application.
 public class SwaggerConfig {
 //    @Bean
 //    public Docket trackApi() {

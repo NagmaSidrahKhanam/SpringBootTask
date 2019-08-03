@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
+//An entity is a plain old Java object (POJO)
+// class that is mapped to the database and configured for usage through JPA using annotations and/or XML.
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,13 +18,14 @@ import javax.persistence.*;
 public class Track {
 
     @Id
+    //marks the field as primary key
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column
+    @Column  //represents column of the table
     private String name;
 
-    @Column
+    @Column  //represents column of the table
     private String comment;
 
 }
