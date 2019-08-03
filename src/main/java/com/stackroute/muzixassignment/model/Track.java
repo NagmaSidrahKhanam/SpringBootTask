@@ -3,8 +3,10 @@ package com.stackroute.muzixassignment.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 @Entity
+// class that is mapped to the database and configured for usage through JPA using annotations and/or XML.
+
 public class Track {
-    @Id
+    @Id //makes id as primary key
     private int id;
     private String firstName;
     private String lastName;
