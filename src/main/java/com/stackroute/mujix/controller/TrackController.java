@@ -11,9 +11,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-@RestController
-@RequestMapping("/api/v1")
-//@ControllerAdvice(basePackages="com.stackroute.muzix")
+@RestController //represents rest controller
+//It’s a convenience annotation that combines @Controller and @ResponseBody and as a result,
+// simplifies the controller implementation:
+@RequestMapping(value = "api/v1")
+//Annotation for mapping web requests onto methods in request-handling
+// classes with flexible method signatures.//@ControllerAdvice(basePackages="com.stackroute.muzix")
 public class TrackController {
     TrackService trackService;
     TrackControllerAdvice trackControllerAdvice;

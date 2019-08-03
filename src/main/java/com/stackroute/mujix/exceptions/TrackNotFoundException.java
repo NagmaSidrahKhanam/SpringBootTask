@@ -1,6 +1,7 @@
 package com.stackroute.mujix.exceptions;
 
 public class TrackNotFoundException extends Exception {
+    //user defined exceptions
     private String message;
     public TrackNotFoundException(String message)
     {
