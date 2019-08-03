@@ -6,8 +6,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
+//An entity is a plain old Java object (POJO)
+// class that is mapped to the database and configured for usage through JPA using annotations and/or XML.
 public class User {
-
     @Id
 //    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
