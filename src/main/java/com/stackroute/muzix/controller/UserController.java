@@ -3,10 +3,11 @@ package com.stackroute.muzix.controller;
 import com.stackroute.muzix.model.User;
 import com.stackroute.muzix.service.UserService;
 import com.stackroute.muzix.service.UserServiceImpl;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import com.wordnik.swagger.annotations.ApiOperation;
+//import io.swagger.annotations.Api;
+//import io.swagger.annotations.ApiOperation;
+//import io.swagger.annotations.ApiResponse;
+//import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,9 +15,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
-@RestController
-@RequestMapping(value=  "/api/v1")
+@RestController //represents rest controller
+//It’s a convenience annotation that combines @Controller and @ResponseBody and as a result,
+// simplifies the controller implementation:
+@RequestMapping(value = "api/v1")
+//Annotation for mapping web requests onto methods in request-handling
+// classes with flexible method signatures.
 //@Api(value="onlinestore", description="Operations pertaining to products in Online Store")
 public class UserController {
 

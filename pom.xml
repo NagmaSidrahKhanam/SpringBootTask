@@ -53,6 +53,22 @@
 			<artifactId>h2</artifactId>
 			<!--			<scope>runtime</scope>-->
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.0.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/net.cgrand/regex -->
+		<dependency>
+			<groupId>net.cgrand</groupId>
+			<artifactId>regex</artifactId>
+			<version>1.1.0</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
