@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import java.util.Optional;
 
 @ControllerAdvice(basePackages = "com.stackroute.muzixapp")
+//@ControllerAdvice is an annotation provided by Spring allowing you to write global code that can be applied to a wide range of controllers
+// — varying from all controllers to a chosen package or even a specific annotation.
 public class UserControllerAdvice {
 
     private ResponseEntity<VndErrors> error(final Exception exception, final HttpStatus httpStatus, final String logRef)
