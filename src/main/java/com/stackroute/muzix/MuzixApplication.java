@@ -7,9 +7,10 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @SpringBootApplication
-@Configuration
-@EnableAutoConfiguration
-@ComponentScan
+//SpringBootApplication annotation can be used to enable those three features, that is:
+//@EnableAutoConfiguration: enable Spring Boot’s auto-configuration mechanism
+//@ComponentScan: enable @Component scan on the package where the application is located (see the best practices)
+//@Configuration: allow to register extra beans in the context or import additional configuration classes
 public class MuzixApplication {
 
 	public static void main(String[] args) {
