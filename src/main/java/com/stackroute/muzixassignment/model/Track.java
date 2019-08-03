@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "Track")
 public class Track {
-    @Id
+    @Id//marks id as primary key
     private int id;
 
 
