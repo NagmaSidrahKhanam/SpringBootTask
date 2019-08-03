@@ -10,6 +10,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 @Configuration
+//Spring @Configuration annotation helps in Spring annotation based configuration.
+// @Configuration annotation indicates that a class declares one or more @Bean methods and may be processed by the
+// Spring container to generate bean definitions and service requests for those beans at runtime.
+
 public class WebConfiguration {
 
     TrackService trackService;

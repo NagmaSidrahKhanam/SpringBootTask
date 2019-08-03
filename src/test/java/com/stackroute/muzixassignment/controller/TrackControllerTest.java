@@ -53,6 +53,8 @@ public class TrackControllerTest {
     }
 
     @Test
+    //	method to check save() method of controller
+
     public void saveTrack() throws Exception {
         when(trackService.saveTrack(any())).thenReturn(track);
         mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/trackservice")
@@ -63,6 +65,8 @@ public class TrackControllerTest {
 
     }
     @Test
+    //	method to check save failure method of controller
+
     public void saveTrackFailure() throws Exception {
         when(trackService.saveTrack(any())).thenThrow(TrackAlreadyExistsException.class);
         mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/trackservice")
@@ -72,6 +76,8 @@ public class TrackControllerTest {
     }
 
     @Test
+    //	method to check get all tracks() method of controller
+
     public void getAllUser() throws Exception {
         when(trackService.getAllTrack()).thenReturn(list);
         mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/trackservice")
@@ -82,7 +88,8 @@ public class TrackControllerTest {
     }
 
 @Test
-public void updateTrack() throws Exception {
+//	method to check update() method of controller
+    public void updateTrack() throws Exception {
     Track track1 = new Track(1,"testcase","testcomment");
     when(trackService.updateTrack(anyInt(), any())).thenReturn(track1);
     mockMvc.perform(MockMvcRequestBuilders.put("/api/v1/trackservice/1")
@@ -92,6 +99,7 @@ public void updateTrack() throws Exception {
             .andExpect(status().isOk());
 }
     @Test
+    //	method to check delete() method of controller
     public void deleteTrack() throws Exception {
         when(trackService.deleteTrack(anyInt())).thenReturn(true);
         mockMvc.perform(MockMvcRequestBuilders.delete("/api/v1/trackservice/1")

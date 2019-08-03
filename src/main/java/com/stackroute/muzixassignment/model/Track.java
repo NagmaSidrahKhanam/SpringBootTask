@@ -4,8 +4,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 @Entity
+//An entity is a plain old Java object (POJO)
+// class that is mapped to the database and configured for usage through JPA using annotations and/or XML.
 public class Track {
-    @Id
+    @Id  //marks id as primary key in the table
     private int id;
 
     @Column

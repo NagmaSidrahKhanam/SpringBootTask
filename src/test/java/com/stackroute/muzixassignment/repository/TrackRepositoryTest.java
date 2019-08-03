@@ -39,6 +39,7 @@ public class TrackRepositoryTest {
 
 
     @Test
+    //checking the test case for saving user
     public void testSaveUser(){
         trackRepository.save(track);
         Track fetchUser = trackRepository.findById(track.getId()).get();
@@ -46,7 +47,7 @@ public class TrackRepositoryTest {
 
     }
 
-    @Test
+    @Test    //checking the test case for saving user failure
     public void testSaveUserFailure(){
         Track testUser = new Track(34,"Harry123","Comments");
         trackRepository.save(track);
@@ -54,7 +55,7 @@ public class TrackRepositoryTest {
         Assert.assertNotSame(testUser,track);
     }
 
-    @Test
+    @Test    //checking the test case for getting all users
     public void testGetAllUser(){
         Track u = new Track(10,"Johny","abc");
         Track u1 = new Track(11,"Harry","efg");
@@ -65,7 +66,7 @@ public class TrackRepositoryTest {
         Assert.assertEquals("Johny",list.get(0).getName());
 
     }
-    @Test
+    @Test    //checking the test case for updating user
     public void updateTrackTest()
     {
         Track track=new Track(106,"Update","UpdatingTracks");
