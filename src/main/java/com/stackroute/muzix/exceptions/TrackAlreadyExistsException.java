@@ -1,13 +1,13 @@
 package com.stackroute.muzix.exceptions;
 
-public class UserAlreadyExistsException extends Exception {
+public class TrackAlreadyExistsException extends Exception {
         //USER DEFINED EXCEPTION
     private String message;
-    public UserAlreadyExistsException()
+    public TrackAlreadyExistsException()
     {
 
     }
-    public UserAlreadyExistsException(String message)
+    public TrackAlreadyExistsException(String message)
     {
         super(message);
         this.message=message;

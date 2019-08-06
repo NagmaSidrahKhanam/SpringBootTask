@@ -13,7 +13,7 @@ import javax.persistence.Id;
 @Entity
 // class that is mapped to the database and configured for usage through JPA using annotations and/or XML.
 
-public class User {
+public class Track {
 
     @Id //marks id as primary key
     private int id;
@@ -63,13 +63,13 @@ public class User {
                 '}';
     }
 
-    public User(int id, String firstname, String lastname, int age) {
+    public Track(int id, String firstname, String lastname, int age) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.age = age;
     }
 
-    public User() {
+    public Track() {
     }
 }
