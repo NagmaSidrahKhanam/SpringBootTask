@@ -78,7 +78,7 @@ public class TrackControllerTest {
     @Test
     //	method to check get all tracks() method of controller
 
-    public void getAllUser() throws Exception {
+    public void getAllTracks() throws Exception {
         when(trackService.getAllTrack()).thenReturn(list);
         mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/trackservice")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(track)))
