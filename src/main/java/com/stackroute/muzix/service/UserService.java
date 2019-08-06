@@ -1,24 +1,24 @@
 package com.stackroute.muzix.service;
 
-import com.stackroute.muzix.exceptions.UserAlreadyExistsException;
-import com.stackroute.muzix.exceptions.UserNotFoundException;
-import com.stackroute.muzix.model.User;
+import com.stackroute.muzix.exceptions.TrackAlreadyExistsException;
+import com.stackroute.muzix.exceptions.TrackNotFoundException;
+import com.stackroute.muzix.model.Track;
 
 import java.util.List;
 
 public interface UserService {
 
 
-    public User saveUser(User user) throws UserAlreadyExistsException;
+    public Track saveUser(Track user) throws TrackAlreadyExistsException;
 
-    public List<User> getAllUsers();
+    public List<Track> getAllUsers();
 
-    public void deleteUser(int id)throws UserNotFoundException;
+    public void deleteUser(int id)throws TrackNotFoundException;
 
-    public User getUserById(int userid);
+    public Track getUserById(int userid);
 
-    public User updateUser(int id,User user);
+    public Track updateUser(int id, Track user);
 
-    public List<User> getUserbyName(String name)throws UserNotFoundException ;
+    public List<Track> getUserbyName(String name)throws TrackNotFoundException;
 
 }

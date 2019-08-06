@@ -1,11 +1,8 @@
 package com.stackroute.muzix.controller;
-import com.stackroute.muzix.exceptions.UserAlreadyExistsException;
-import com.stackroute.muzix.exceptions.UserNotFoundException;
-import com.stackroute.muzix.model.User;
+import com.stackroute.muzix.exceptions.TrackAlreadyExistsException;
+import com.stackroute.muzix.exceptions.TrackNotFoundException;
+import com.stackroute.muzix.model.Track;
 import com.stackroute.muzix.service.UserService;
-import com.stackroute.muzix.service.UserServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.annotation.Id;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,18 +18,18 @@ import java.util.List;
 //Annotation for mapping web requests onto methods in request-handling
 // classes with flexible method signatures.
 @ControllerAdvice(basePackages="com.stackroute.muzix")
-public class UserController {
+public class TrackController {
     UserService userService;
 
 
-    public UserController(UserService userService)
+    public TrackController(UserService userService)
     {
         this.userService=userService;
     }
 
     @PostMapping("user")
-    @ExceptionHandler(UserAlreadyExistsException.class)
-    public ResponseEntity<?> saveuser(@RequestBody User user)
+    @ExceptionHandler(TrackAlreadyExistsException.class)
+    public ResponseEntity<?> saveuser(@RequestBody Track user)
     {
         ResponseEntity responseEntity;
         try
@@ -40,7 +37,7 @@ public class UserController {
             userService.saveUser(user);
             responseEntity=new ResponseEntity<String>("successfully created",HttpStatus.CREATED);
         }
-        catch(UserAlreadyExistsException ex)
+        catch(TrackAlreadyExistsException ex)
         {
             responseEntity=new ResponseEntity<String>(ex.getMessage(),HttpStatus.CONFLICT);
         }
@@ -49,7 +46,7 @@ public class UserController {
 
     @GetMapping("user")
     public ResponseEntity<?> getAllUser(){
-        return new ResponseEntity<List<User>>(userService.getAllUsers(),HttpStatus.OK);
+        return new ResponseEntity<List<Track>>(userService.getAllUsers(),HttpStatus.OK);
     }
     @DeleteMapping("/user/{id}")
     public ResponseEntity<?> deleteUser(@PathVariable int id){
@@ -68,7 +65,7 @@ public class UserController {
 
 
     @PutMapping("/user/{id}")
-    public ResponseEntity<?> updateUser(@PathVariable int id,@RequestBody User user)
+    public ResponseEntity<?> updateUser(@PathVariable int id,@RequestBody Track user)
     {
         ResponseEntity responseEntity;
         try
@@ -83,16 +80,16 @@ public class UserController {
         return responseEntity;
     }
     @GetMapping("user/{firstName}")
-    @ExceptionHandler(UserNotFoundException.class)
+    @ExceptionHandler(TrackNotFoundException.class)
     public ResponseEntity<?> getTrackbyName(@PathVariable String firstName) {
 
         ResponseEntity responseEntity;
 
         try {
-            responseEntity = new ResponseEntity<List<User>>(userService.getUserbyName(firstName), HttpStatus.CREATED);
+            responseEntity = new ResponseEntity<List<Track>>(userService.getUserbyName(firstName), HttpStatus.CREATED);
 
 
-        } catch (UserNotFoundException e) {
+        } catch (TrackNotFoundException e) {
             responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
 
         }

@@ -1,8 +1,8 @@
 package com.stackroute.muzix.controller;
 
 
-import com.stackroute.muzix.exceptions.UserAlreadyExistsException;
-import com.stackroute.muzix.exceptions.UserNotFoundException;
+import com.stackroute.muzix.exceptions.TrackAlreadyExistsException;
+import com.stackroute.muzix.exceptions.TrackNotFoundException;
 import org.springframework.hateoas.VndErrors;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @ControllerAdvice(basePackages = "com.stackroute.muzixapp")
 //handles exceptions
-public class UserControllerAdvice {
+public class TrackControllerAdvice {
 
     private ResponseEntity<VndErrors> error(final Exception exception, final HttpStatus httpStatus, final String logRef)
     {
@@ -21,14 +21,14 @@ public class UserControllerAdvice {
         return new ResponseEntity<>(new VndErrors(logRef, message), httpStatus);
     }
 
-    @ExceptionHandler(UserNotFoundException.class)
-    public ResponseEntity <VndErrors> notFoundException(final UserNotFoundException e)
+    @ExceptionHandler(TrackNotFoundException.class)
+    public ResponseEntity <VndErrors> notFoundException(final TrackNotFoundException e)
     {
         return error(e, HttpStatus.NOT_FOUND, e.getMessage());
     }
 
-    @ExceptionHandler(UserAlreadyExistsException.class)
-    public ResponseEntity <VndErrors> alreadyExistsException(final UserAlreadyExistsException e) {
+    @ExceptionHandler(TrackAlreadyExistsException.class)
+    public ResponseEntity <VndErrors> alreadyExistsException(final TrackAlreadyExistsException e) {
         return error(e, HttpStatus.CONFLICT, e.getLocalizedMessage());
     }
 }
